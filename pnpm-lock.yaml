@@ -3,6 +3,7 @@ lockfileVersion: 5.4
 specifiers:
   '@apollo/server': ^4.7.1
   '@nestjs/apollo': ^11.0.6
+  '@nestjs/axios': ^2.0.0
   '@nestjs/cli': ^9.0.0
   '@nestjs/common': ^9.0.0
   '@nestjs/core': ^9.0.0
@@ -11,6 +12,7 @@ specifiers:
   '@nestjs/schematics': ^9.0.0
   '@nestjs/serve-static': ^3.0.1
   '@nestjs/testing': ^9.0.0
+  '@types/axios': ^0.14.0
   '@types/express': ^4.17.17
   '@types/jest': 29.5.1
   '@types/node': 18.16.12
@@ -19,6 +21,8 @@ specifiers:
   '@typescript-eslint/eslint-plugin': ^5.59.7
   '@typescript-eslint/parser': ^5.59.7
   '@typescript-eslint/utils': ^5.59.7
+  axios: ^1.4.0
+  dayjs: ^1.11.8
   dotenv: ^16.0.3
   eslint: ^8.41.0
   eslint-config-prettier: ^8.8.0
@@ -47,10 +51,13 @@ specifiers:
 dependencies:
   '@apollo/server': 4.7.1_graphql@16.6.0
   '@nestjs/apollo': 11.0.6_jj3q526tgwzm376j7jbx3ya6ty
+  '@nestjs/axios': 2.0.0_cjf5ob3vauibybi45ozubvhmdm
   '@nestjs/common': 9.4.2_atc7tu2sld2m3nk4hmwkqn6qde
   '@nestjs/core': 9.4.2_nwbnqqz2yrjpgeljnyqy536iaa
   '@nestjs/platform-express': 9.4.2_esprltrbpiguxawrkfzeze6eae
   '@nestjs/serve-static': 3.0.1_esprltrbpiguxawrkfzeze6eae
+  axios: 1.4.0
+  dayjs: 1.11.8
   dotenv: 16.0.3
   pg: 8.11.0
   reflect-metadata: 0.1.13
@@ -61,6 +68,7 @@ devDependencies:
   '@nestjs/graphql': 11.0.6_ialnnoy7wtyogk6axbpsqtlfue
   '@nestjs/schematics': 9.2.0_typescript@5.0.4
   '@nestjs/testing': 9.4.2_kocaqb2lzbsxwzhsvtfaayayki
+  '@types/axios': 0.14.0
   '@types/express': 4.17.17
   '@types/jest': 29.5.1
   '@types/node': 18.16.12
@@ -1202,6 +1210,20 @@ packages:
       tslib: 2.5.2
     dev: false
 
+  /@nestjs/axios/2.0.0_cjf5ob3vauibybi45ozubvhmdm:
+    resolution: {integrity: sha512-F6oceoQLEn031uun8NiommeMkRIojQqVryxQy/mK7fx0CI0KbgkJL3SloCQcsOD+agoEnqKJKXZpEvL6FNswJg==}
+    peerDependencies:
+      '@nestjs/common': ^7.0.0 || ^8.0.0 || ^9.0.0
+      axios: ^1.3.1
+      reflect-metadata: ^0.1.12
+      rxjs: ^6.0.0 || ^7.0.0
+    dependencies:
+      '@nestjs/common': 9.4.2_atc7tu2sld2m3nk4hmwkqn6qde
+      axios: 1.4.0
+      reflect-metadata: 0.1.13
+      rxjs: 7.8.1
+    dev: false
+
   /@nestjs/cli/9.5.0:
     resolution: {integrity: sha512-Z7q+3vNsQSG2d2r2Hl/OOj5EpfjVx3OfnJ9+KuAsOdw1sKLm7+Zc6KbhMFTd/eIvfx82ww3Nk72xdmfPYCulWA==}
     engines: {node: '>= 12.9.0'}
@@ -1534,6 +1556,15 @@ packages:
 
   /@tsconfig/node16/1.0.4:
     resolution: {integrity: sha512-vxhUy4J8lyeyinH7Azl1pdd43GJhZH/tP2weN8TntQblOY+A0XbT8DJk1/oCPuOOyg/Ja757rG0CgHcWC8OfMA==}
+    dev: true
+
+  /@types/axios/0.14.0:
+    resolution: {integrity: sha512-KqQnQbdYE54D7oa/UmYVMZKq7CO4l8DEENzOKc4aBRwxCXSlJXGz83flFx5L7AWrOQnmuN3kVsRdt+GZPPjiVQ==}
+    deprecated: This is a stub types definition for axios (https://github.com/mzabriskie/axios). axios provides its own type definitions, so you don't need @types/axios installed!
+    dependencies:
+      axios: 1.4.0
+    transitivePeerDependencies:
+      - debug
     dev: true
 
   /@types/babel__core/7.20.1:
@@ -2219,6 +2250,15 @@ packages:
     engines: {node: '>= 0.4'}
     dev: true
 
+  /axios/1.4.0:
+    resolution: {integrity: sha512-S4XCWMEmzvo64T9GfvQDOXgYRDJ/wsSZc7Jvdgx5u1sd0JwsuPLqb3SYmusag+edF6ziyMensPVqLTSc1PiSEA==}
+    dependencies:
+      follow-redirects: 1.15.2
+      form-data: 4.0.0
+      proxy-from-env: 1.1.0
+    transitivePeerDependencies:
+      - debug
+
   /babel-jest/29.5.0_@babel+core@7.22.1:
     resolution: {integrity: sha512-mA4eCDh5mSo2EcA9xQjVTpmbbNk32Zb3Q3QFQsNhaK56Q+yoXowzFodLux30HRgyOho5rsQ6B0P9QpMkvvnJ0Q==}
     engines: {node: ^14.15.0 || ^16.10.0 || >=18.0.0}
@@ -2700,6 +2740,10 @@ packages:
 
   /cssfilter/0.0.10:
     resolution: {integrity: sha512-FAaLDaplstoRsDR8XGYH51znUN0UY7nMc6Z9/fvE8EXGwvJE9hu7W2vHwx1+bd6gCYnln9nLbzxFTrcO9YQDZw==}
+    dev: false
+
+  /dayjs/1.11.8:
+    resolution: {integrity: sha512-LcgxzFoWMEPO7ggRv1Y2N31hUf2R0Vj7fuy/m+Bg1K8rr+KAs1AEy4y9jd5DXe8pbHgX+srkHNS7TH6Q6ZhYeQ==}
     dev: false
 
   /debug/2.6.9:
@@ -3454,6 +3498,15 @@ packages:
     resolution: {integrity: sha512-5nqDSxl8nn5BSNxyR3n4I6eDmbolI6WT+QqR547RwxQapgjQBmtktdP+HTBb/a/zLsbzERTONyUB5pefh5TtjQ==}
     dev: true
 
+  /follow-redirects/1.15.2:
+    resolution: {integrity: sha512-VQLG33o04KaQ8uYi2tVNbdrWp1QWxNNea+nmIB4EVM28v0hmP17z7aG1+wAkNzVq4KeXTq3221ye5qTJP91JwA==}
+    engines: {node: '>=4.0'}
+    peerDependencies:
+      debug: '*'
+    peerDependenciesMeta:
+      debug:
+        optional: true
+
   /for-each/0.3.3:
     resolution: {integrity: sha512-jqYfLp7mo9vIyQf8ykW2v7A+2N4QjeCeI5+Dz9XraiO1ign81wjiH7Fb9vSOWvQfNtmSa4H2RoQTrrXivdUZmw==}
     dependencies:
@@ -3499,7 +3552,6 @@ packages:
       asynckit: 0.4.0
       combined-stream: 1.0.8
       mime-types: 2.1.35
-    dev: true
 
   /formidable/2.1.2:
     resolution: {integrity: sha512-CM3GuJ57US06mlpQ47YcunuUZ9jpm8Vx+P2CGt2j7HpgkKZO/DJYQ0Bobim8G6PFQmK5lOqOOdUXboU+h73A4g==}
@@ -5444,6 +5496,9 @@ packages:
     dependencies:
       forwarded: 0.2.0
       ipaddr.js: 1.9.1
+
+  /proxy-from-env/1.1.0:
+    resolution: {integrity: sha512-D+zkORCbA9f1tdWRK0RaCR3GPv50cMxcrz4X8k5LTSUD1Dkw47mKJEZQNunItRTkWwgtaUSo1RVFRIG9ZXiFYg==}
 
   /pump/3.0.0:
     resolution: {integrity: sha512-LwZy+p3SFs1Pytd/jYct4wpv49HiYCqd9Rlc5ZVdk0V+8Yzv6jR5Blk3TRmPL1ft69TxP0IMZGJ+WPFU2BFhww==}
